@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import CharactersListScreen from '../screens/CharactersListScreen';
+import HomeScreen from '../screens/HomeScreen';
 import CharacterDetailScreen from '../screens/CharacterDetailScreen';
 
 const Stack = createStackNavigator();
@@ -10,7 +10,7 @@ const AppNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator 
-        initialRouteName="CharactersList"
+        initialRouteName="Home"
         screenOptions={{
           headerStyle: {
             backgroundColor: '#1a1a1a',
@@ -19,26 +19,17 @@ const AppNavigator = () => {
           headerTitleStyle: {
             fontWeight: 'bold',
           },
-          cardStyle: {
-            backgroundColor: '#1a1a1a'
-          }
         }}
       >
         <Stack.Screen 
-          name="CharactersList" 
-          component={CharactersListScreen}
-          options={{ 
-            title: 'Rick and Morty Characters',
-            headerTitleAlign: 'center',
-          }}
+          name="Home" 
+          component={HomeScreen}
+          options={{ title: 'Rick and Morty Characters' }}
         />
         <Stack.Screen 
           name="CharacterDetail" 
           component={CharacterDetailScreen}
-          options={{ 
-            title: 'Detalhes do Personagem',
-            headerTitleAlign: 'center',
-          }}
+          options={{ title: 'Detalhes' }}
         />
       </Stack.Navigator>
     </NavigationContainer>
